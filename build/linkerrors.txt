@@ -1,0 +1,41 @@
+================================================================================
+Linker Errors
+Generated: 2026-11-02T19:05:32.743Z
+Total Errors: 12
+================================================================================
+
+[LNK2001] (MSVC)
+unresolved external symbol "public: virtual bool __cdecl Piece::IsValidTake(class Position,class Piece const *)" (?IsValidTake@Piece@@UEAA_NVPosition@@PEBV1@@Z) [C:\Users\jelon\OneDrive\Desktop\Learning Programming\LearningC++\SimpleChessGame\build\SimpleChessGame.vcxproj]
+
+[LNK2001] (MSVC)
+unresolved external symbol "public: virtual bool __cdecl Piece::IsValidTake(class Position,class Piece const *)" (?IsValidTake@Piece@@UEAA_NVPosition@@PEBV1@@Z) [C:\Users\jelon\OneDrive\Desktop\Learning Programming\LearningC++\SimpleChessGame\build\SimpleChessGame.vcxproj]
+
+[LNK2001] (MSVC)
+unresolved external symbol "public: virtual bool __cdecl Piece::IsValidMove(class Position,class Piece const *)" (?IsValidMove@Piece@@UEAA_NVPosition@@PEBV1@@Z) [C:\Users\jelon\OneDrive\Desktop\Learning Programming\LearningC++\SimpleChessGame\build\SimpleChessGame.vcxproj]
+
+[LNK2001] (MSVC)
+unresolved external symbol "public: virtual bool __cdecl Piece::IsValidMove(class Position,class Piece const *)" (?IsValidMove@Piece@@UEAA_NVPosition@@PEBV1@@Z) [C:\Users\jelon\OneDrive\Desktop\Learning Programming\LearningC++\SimpleChessGame\build\SimpleChessGame.vcxproj]
+
+[LNK2001] (MSVC)
+unresolved external symbol "public: virtual bool __cdecl Piece::MoveTo(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,class Piece const *)" (?MoveTo@Piece@@UEAA_NV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PEBV1@@Z) [C:\Users\jelon\OneDrive\Desktop\Learning Programming\LearningC++\SimpleChessGame\build\SimpleChessGame.vcxproj]
+
+[LNK2001] (MSVC)
+unresolved external symbol "public: virtual bool __cdecl Piece::MoveTo(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,class Piece const *)" (?MoveTo@Piece@@UEAA_NV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PEBV1@@Z) [C:\Users\jelon\OneDrive\Desktop\Learning Programming\LearningC++\SimpleChessGame\build\SimpleChessGame.vcxproj]
+
+[LNK2001] (MSVC)
+unresolved external symbol "public: virtual bool __cdecl Piece::Take(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,class Piece const *)" (?Take@Piece@@UEAA_NV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PEBV1@@Z) [C:\Users\jelon\OneDrive\Desktop\Learning Programming\LearningC++\SimpleChessGame\build\SimpleChessGame.vcxproj]
+
+[LNK2001] (MSVC)
+unresolved external symbol "public: virtual bool __cdecl Piece::Take(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,class Piece const *)" (?Take@Piece@@UEAA_NV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PEBV1@@Z) [C:\Users\jelon\OneDrive\Desktop\Learning Programming\LearningC++\SimpleChessGame\build\SimpleChessGame.vcxproj]
+
+[LNK2001] (MSVC)
+unresolved external symbol "public: virtual char __cdecl Piece::Symbol(void)" (?Symbol@Piece@@UEAADXZ) [C:\Users\jelon\OneDrive\Desktop\Learning Programming\LearningC++\SimpleChessGame\build\SimpleChessGame.vcxproj]
+
+[LNK2001] (MSVC)
+unresolved external symbol "public: virtual char __cdecl Piece::Symbol(void)" (?Symbol@Piece@@UEAADXZ) [C:\Users\jelon\OneDrive\Desktop\Learning Programming\LearningC++\SimpleChessGame\build\SimpleChessGame.vcxproj]
+
+[LNK2001] (MSVC)
+unresolved external symbol "public: virtual char __cdecl Bishop::Symbol(void)" (?Symbol@Bishop@@UEAADXZ) [C:\Users\jelon\OneDrive\Desktop\Learning Programming\LearningC++\SimpleChessGame\build\SimpleChessGame.vcxproj]
+
+[LNK1120] (MSVC)
+6 unresolved externals [C:\Users\jelon\OneDrive\Desktop\Learning Programming\LearningC++\SimpleChessGame\build\SimpleChessGame.vcxproj]

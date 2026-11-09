@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\jelon\OneDrive\Desktop\Learning Programming\LearningC++\SimpleChessGame\Bishop.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jelon\OneDrive\Desktop\Learning Programming\LearningC++\SimpleChessGame\Board.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jelon\OneDrive\Desktop\Learning Programming\LearningC++\SimpleChessGame\King.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jelon\OneDrive\Desktop\Learning Programming\LearningC++\SimpleChessGame\Knight.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jelon\OneDrive\Desktop\Learning Programming\LearningC++\SimpleChessGame\Pawn.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jelon\OneDrive\Desktop\Learning Programming\LearningC++\SimpleChessGame\Piece.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jelon\OneDrive\Desktop\Learning Programming\LearningC++\SimpleChessGame\Player.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jelon\OneDrive\Desktop\Learning Programming\LearningC++\SimpleChessGame\Position.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jelon\OneDrive\Desktop\Learning Programming\LearningC++\SimpleChessGame\Queen.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jelon\OneDrive\Desktop\Learning Programming\LearningC++\SimpleChessGame\Rook.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jelon\OneDrive\Desktop\Learning Programming\LearningC++\SimpleChessGame\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\jelon\OneDrive\Desktop\Learning Programming\LearningC++\SimpleChessGame\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{5AB5C293-0E78-30E4-B22B-BB94EED8BB9D}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

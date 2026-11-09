@@ -1,0 +1,3 @@
+C:/Users/jelon/OneDrive/Desktop/Learning Programming/LearningC++/SimpleChessGame/build/CMakeFiles/SimpleChessGame.dir
+C:/Users/jelon/OneDrive/Desktop/Learning Programming/LearningC++/SimpleChessGame/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/jelon/OneDrive/Desktop/Learning Programming/LearningC++/SimpleChessGame/build/CMakeFiles/ZERO_CHECK.dir
