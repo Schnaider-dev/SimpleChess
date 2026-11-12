@@ -1,6 +1,6 @@
 # Overview
 
-Simple Chess Game is a console-based, two-player chess project written in C++. Players take turns entering moves, and the program displays the board and tracks captured pieces. The project is a way to practice designing and building a complete C++ program while developing my software engineering skills.
+Simple Chess Game is a console-based, two-player chess project written in C++. Players Capture turns entering moves, and the program displays the board and tracks captured pieces. The project is a way to practice designing and building a complete C++ program while developing my software engineering skills.
 
 I wrote this project to learn more about object-oriented programming, including classes, inheritance, and polymorphism. It also gave me practice working with vectors, pointers, input parsing, and separating program logic across source and header files.
 

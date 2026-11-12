@@ -2,17 +2,19 @@
 #include <string>
 #include <cstdlib>
 
- bool Pawn::IsValidTake(Position target, const Piece* piece) {
+ // Checks whether the pawn can capture an opposing piece diagonally forward.
+ bool Pawn::IsValidCapture(Position target, const Piece* piece) {
      const Position &current = position;
      int direction = m_white ? 1 : -1;
 
      int row_change = current.get_row() - target.get_row();
      int col_change = target.get_col() - current.get_col();
 
-     return (row_change == direction) && (std::abs(col_change) == 1) && CanTakeOn(piece);
+     return (row_change == direction) && (std::abs(col_change) == 1) && CanCaptureOn(piece);
  }
 
 
+ // Checks whether the pawn can move forward to an empty square.
  bool Pawn::IsValidMove(Position target, const Piece* piece) {
      Position &current = position;
      bool valid_row;
@@ -37,6 +39,7 @@
      return valid_col && valid_row && CanLandOn(piece);
  }
 
+ // Moves the pawn if legal and records that it has moved before.
  bool Pawn::MoveTo(std::string target, const Piece* piece) {
     Position m_target(target);
 
@@ -49,11 +52,12 @@
     return true;
  }
 
- bool Pawn::Take(std::string target, const Piece* piece) {
+ // Captures an opposing piece diagonally if the capture is legal.
+ bool Pawn::Capture(std::string target, const Piece* piece) {
     Position m_target(target);
 
     // use the Position constructor and assign the result to the inherited position member
-    if (IsValidTake(m_target, piece)) {
+    if (IsValidCapture(m_target, piece)) {
         this -> position = m_target;
         return true;
     }
@@ -61,6 +65,7 @@
 }
 
 
+// Returns the board character used to display this pawn's color.
 char Pawn::Symbol() {
     return m_white ? 'P' : 'p';
 }

@@ -14,10 +14,10 @@ class Piece {
         Position position;
 
         //Pure virtual methods
-        virtual bool IsValidTake(Position target, const Piece* piece) = 0;
+        virtual bool IsValidCapture(Position target, const Piece* piece) = 0;
         virtual bool IsValidMove(Position target, const Piece* piece) = 0;
         virtual bool MoveTo(string target, const Piece* piece) = 0;
-        virtual bool Take(string target, const Piece* piece) = 0;
+        virtual bool Capture(string target, const Piece* piece) = 0;
         virtual char Symbol() = 0;
 
 
@@ -31,5 +31,5 @@ class Piece {
 
         */
         bool CanLandOn(const Piece *piece) const;
-        bool CanTakeOn(const Piece *pice) const;
+        bool CanCaptureOn(const Piece *pice) const;
 };

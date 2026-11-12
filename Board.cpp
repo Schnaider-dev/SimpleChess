@@ -8,6 +8,7 @@
 
 std::string AddMargin(std::string &text);
 
+// Builds the board from the starting pieces belonging to both players.
 Board::Board(std::vector<Player*> players) {
     for(Player* player : players) {
         for(Piece* piece : player->pieces) {
@@ -20,6 +21,7 @@ Board::Board(std::vector<Player*> players) {
     
 }
 
+// Rebuilds the board grid using the pieces' current positions.
 void Board::UpdatedBoard() {
     board = Grid(SIZE, std::vector<Piece*>(SIZE, nullptr));
     for (Piece* piece : board_pieces) {
@@ -29,18 +31,17 @@ void Board::UpdatedBoard() {
     }
 }
 
+// Prints the board and the pieces captured by each player.
 void Board::DisplayBoard(std::vector<std::vector<Piece*>>* captured_pieces) {
    
     std::vector<string> players = {"Black", "White"};
     int i = 0;
     
     std::ostringstream out;
-    //"\033[H" at the start moves the cursor to the top-left. The new board is drawn over the old one, so there is no blank frame.
-    out << "\033[H"; // cursor to top-left, no clearing
-
+    out << "\033[2J\033[H";
     //"\033[K" before each "\n" erases leftover characters on that line.
-    out << "    " << "a b c d e f g h " << "\033[K\n";
-    out << "    " << std::string(16, '-') << "\033[K\n";
+    out << "    " << "a b c d e f g h \n";
+    out << "    " << std::string(16, '-') << "\n";
 
     for (int row = 0; row < SIZE; row++) {
         out << 8 - row << " ";
@@ -76,18 +77,17 @@ void Board::DisplayBoard(std::vector<std::vector<Piece*>>* captured_pieces) {
         out <<"\033[K\n";
     }
 
-    //"\033[J" at the end erases anything below the board, such as the old prompt or an old error message.
-    out << "\033[J"; // erase everything below the board
-
-    std::cout << AddMargin(out.str()) << std::flush; // one single write
+    std::cout << out.str() << std::flush; // one single write
 }
 
+// Returns the piece at the requested chess square, or nullptr if it is empty.
 Piece* Board::At(std::string position) {
     Position new_pos(position);
     Piece *piece = board[new_pos.get_row()][new_pos.get_col()];
     return piece;
 }
 
+// Removes a captured piece from the board grid and the board's piece list.
 void Board::RemovePiece(Piece* piece) {
     if (piece == nullptr) {
         return;
@@ -96,16 +96,13 @@ void Board::RemovePiece(Piece* piece) {
     int row = piece->position.get_row();
     int col = piece->position.get_col();
     board[row][col] = nullptr;
+    /*
+        The std::remove function is a template algorithm that removes all occurrences of a specified value from a range defined by two iterators, _First and _Last, in a vector of pointers to Piece objects. It shifts the remaining elements to the front of the range and returns an iterator to the new logical end of the vector, effectively resizing it without actually changing its capacity.  
+    */
     board_pieces.erase(
         std::remove(board_pieces.begin(), board_pieces.end(), piece),
         board_pieces.end()
     );
 }
 
-std::string AddMargin(std::string& text) {
-    std::ostringstream out;
-
-    out << "\n" << std::string(10, ' ') << "\n";
-    out << std::string(50, ' ') << text;
-    return out.str();
-}
+// Adds left-side spacing to the rendered board text.

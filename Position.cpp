@@ -3,8 +3,10 @@
 #include <stdexcept>
 
 
+// Creates a position without assigning it to a board square.
 Position::Position() = default;
 
+// Creates a position from row and column coordinates, rejecting invalid values.
 Position::Position(int row, int col) {
     // If the position is set true is return and exception never run, other exception is set.
     if (!set_position(row, col)) {
@@ -12,6 +14,7 @@ Position::Position(int row, int col) {
     }
 };
 
+// Converts chess notation such as "e4" into internal row and column coordinates.
 Position::Position(std::string position) {
     if (position.size() != 2 || position[0] < 'a' || position[0] > 'h' ||
         position[1] < '1' || position[1] > '8') {
@@ -19,7 +22,7 @@ Position::Position(std::string position) {
     }
 
     /* 
-    => Take the ascii code of 'a', and with the substraction, calculate the difference between the postion[0] and 'a'.
+    => Capture the ascii code of 'a', and with the substraction, calculate the difference between the postion[0] and 'a'.
 
     => This will then be used to transform to the row number
     For exemple: position[0] is 'a' which ascii code is 97
@@ -37,6 +40,7 @@ Position::Position(std::string position) {
 };
 
 //To check if the position set is valid and return true or false in either case.
+// Stores valid board coordinates and reports whether they were accepted.
 bool Position::set_position(int row, int col) {
     bool valid_row = row >= 0 && row <= 7;
     bool valid_col = col >= 0 && col <= 7;
@@ -48,14 +52,17 @@ bool Position::set_position(int row, int col) {
     return false;
 };
 
+// Returns this position's row index.
 int Position::get_row() const {
     return row;
 };
 
+// Returns this position's column index.
 int Position::get_col() const {
     return col;
 };
 
+// Converts the internal coordinates back into chess notation.
 std::string Position::get_position() const {
     if (row == -1 || col == -1) {
         throw std::logic_error("Position has not been set");
@@ -80,6 +87,5 @@ std::string Position::get_position() const {
            static_cast<char>('8' - row); 
            // Ex: "c" + '5' The std::string class overloads + appending a character to a string is valid.
 };
-
 
 

@@ -1,5 +1,6 @@
 #include "./c++_headers/King.h"
 
+// Checks whether the king can move one square to an empty adjacent square.
 bool King::IsValidMove(Position target, const Piece *piece) {
     const Position &current = position;
     int row_diff = std::abs(current.get_row() - target.get_row());
@@ -12,7 +13,8 @@ bool King::IsValidMove(Position target, const Piece *piece) {
     return (horizontal_move || vertical_move || diagonal_move) && CanLandOn(piece);
 }
 
-bool King::IsValidTake(Position target, const Piece *piece) {
+// Checks whether the king can capture an opposing piece on an adjacent square.
+bool King::IsValidCapture(Position target, const Piece *piece) {
     const Position &current = position;
     int row_diff = std::abs(current.get_row() - target.get_row());
     int col_diff = std::abs(current.get_col() - target.get_col());
@@ -21,12 +23,13 @@ bool King::IsValidTake(Position target, const Piece *piece) {
     bool vertical_move = col_diff == 0 && row_diff == 1;
     bool diagonal_move = row_diff == 1 && row_diff == col_diff;
 
-    return (horizontal_move || vertical_move || diagonal_move) && CanTakeOn(piece);
+    return (horizontal_move || vertical_move || diagonal_move) && CanCaptureOn(piece);
 }
 
-bool King::Take(std::string target, const Piece *piece) {
+// Captures an opposing piece if the target is a legal adjacent square.
+bool King::Capture(std::string target, const Piece *piece) {
     Position m_target(target);
-    if (!IsValidTake(m_target, piece)) {
+    if (!IsValidCapture(m_target, piece)) {
         return false;
     }
 
@@ -34,6 +37,7 @@ bool King::Take(std::string target, const Piece *piece) {
     return true;
 }
 
+// Moves the king to an empty adjacent square if the move is legal.
 bool King::MoveTo(std::string target, const Piece *piece) {
     Position m_target(target);
     if (!IsValidMove(m_target, piece)) {
@@ -44,6 +48,7 @@ bool King::MoveTo(std::string target, const Piece *piece) {
     return true;
 }
 
+// Returns the board character used to display this king's color.
 char King::Symbol() {
     return m_white ? 'K' : 'k';
 }

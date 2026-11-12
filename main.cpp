@@ -13,7 +13,10 @@ void initTerminal();
 std::vector<std::string> Split(std::string text, char delimiter);
 void DisplayGameInterface();
 void clearScreen();
+void enterGameScreen();
+void leaveGameScreen();
 
+// Runs the game menu and manages turns, input, moves, and captures.
 int main() {
     initTerminal();
     std::string user_choice, user_input;
@@ -35,7 +38,7 @@ int main() {
 
             Board board(std::vector<Player*>{&white, &black});
 
-            clearScreen();
+            enterGameScreen();
             std::vector<std::vector<Piece*>> captured_pieces(2);
             board.DisplayBoard(&captured_pieces);
             std::cout << "\nType 'quit' to end the game.\n";
@@ -80,7 +83,7 @@ int main() {
                 std::string to = positions[2];
 
                 Piece *moving_piece = board.At(from);
-                Piece *taken_piece = board.At(to);
+                Piece *capture_piece = board.At(to);
 
                 if(moving_piece == nullptr) {
                     std::cout << "Invalid move. No piece at this position.";
@@ -93,20 +96,20 @@ int main() {
                 }
 
                 bool success;
-                if (command == "take")
+                if (command == "capture")
                 {
-                    success = moving_piece->Take(to, taken_piece);
+                    success = moving_piece->Capture(to, capture_piece);
                 } 
                 else if (command == "move"){
-                    success = moving_piece->MoveTo(to, taken_piece);
+                    success = moving_piece->MoveTo(to, capture_piece);
                 } else {
                     std::cout << "      Invalid command. Try again";
                     continue;
                 }    
                 
-                if(command == "take" && success) {
-                    captured_pieces[white_turn].push_back(taken_piece);
-                    board.RemovePiece(taken_piece);
+                if(command == "capture" && success) {
+                    captured_pieces[white_turn].push_back(capture_piece);
+                    board.RemovePiece(capture_piece);
                 }
                 
                 if (success) {
@@ -120,6 +123,7 @@ int main() {
                 }
                 
             } while (is_playing);
+            leaveGameScreen();
         }
         else if(user_choice == "2"){
             
@@ -131,6 +135,7 @@ int main() {
 
 }
 
+// Splits a string into parts wherever the chosen delimiter appears.
 std::vector<std::string> Split(std::string text, char delimiter) {
     std::istringstream stream(text);
     std::string piece;
@@ -143,7 +148,9 @@ std::vector<std::string> Split(std::string text, char delimiter) {
     return parts;
 }
 
+// Prints the game's main menu.
 void DisplayGameInterface() {
+        clearScreen();
         std::string menu_text;
         menu_text += "\n\nWelcome to Nai's Chess Game \n";
         menu_text += std::string(40, '*');
@@ -156,17 +163,28 @@ void DisplayGameInterface() {
         std::cout << menu_text;
 }
 
+// Enables terminal settings needed for the board display on Windows.
 void initTerminal() {
 #ifdef _WIN32
-    clearScreen();
     // Enables ANSI escape codes on Windows 10+
     HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
     DWORD mode = 0;
     GetConsoleMode(h, &mode);
     SetConsoleMode(h, mode | ENABLE_VIRTUAL_TERMINAL_PROCESSING);
+    clearScreen();
 #endif
 }
 
+// Clears the terminal and moves the cursor to the top-left corner.
 void clearScreen() {
     std::cout << "\033[2J\033[H" << std::flush;
+}
+
+// Uses the terminal's separate screen buffer so game output does not enter scrollback.
+void enterGameScreen() {
+    std::cout << "\033[?1049h\033[2J\033[H" << std::flush;
+}
+
+void leaveGameScreen() {
+    std::cout << "\033[?1049l" << std::flush;
 }

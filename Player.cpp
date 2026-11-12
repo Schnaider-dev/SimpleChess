@@ -1,5 +1,6 @@
 #include "./c++_headers/Player.h"
 
+// Creates a player, places their pieces in the starting positions, and records them.
 Player::Player(bool white) : m_white(white), king(white), queen(white), b_bishop(white), w_bishop(white), b_knight(white), w_knight(white), b_rook(white), w_rook(white), pawns(8, Pawn(white)){
     
         b_rook.position = white ? Position("a1") : Position("h8");
